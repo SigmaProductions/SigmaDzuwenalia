@@ -40,8 +40,28 @@ namespace SigmaDzuwenalia.Controllers
         [HttpPut]
         public async Task<IHttpActionResult> Edit(PoliceResource policeResource)
         {
+            var police = AutoMapper.Mapper.Map<Police>(policeResource);
+            await _policeService.Edit(police);
 
             return Ok();
+        }
+
+        [HttpGet]
+        public async Task<PoliceResource> GetById(int id)
+        {
+            var police = await _policeService.GetById(id);
+            var policeReturn = AutoMapper.Mapper.Map<PoliceResource>(police);
+
+            return policeReturn;
+        }
+
+        [HttpGet]
+        public async Task<List<PoliceResource>> GetAll()
+        {
+            var policeList = await _policeService.GetAll();
+            var policeListReturn = AutoMapper.Mapper.Map<List<PoliceResource>>(policeList);
+
+            return policeListReturn;
         }
     }
 }

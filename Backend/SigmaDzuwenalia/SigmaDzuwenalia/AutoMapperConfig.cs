@@ -14,6 +14,7 @@ namespace SigmaDzuwenalia
             Mapper.Initialize((config) =>
             {
                 config.CreateMap<FlankiResource, BuisnessServices.Flanki.Flanki>().ReverseMap();
+                config.CreateMap<PoliceResource, BuisnessServices.Police.Police>().ReverseMap();
                 
             });
         }

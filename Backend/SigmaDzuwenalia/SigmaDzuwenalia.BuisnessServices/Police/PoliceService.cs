@@ -26,5 +26,17 @@ namespace SigmaDzuwenalia.BuisnessServices.Police
         {
             await _policeRepository.Edit(police);
         }
+        public async Task<Police> GetById(int id)
+        {
+            var policeReturn = await _policeRepository.GetById(id);
+
+            return policeReturn;
+        }
+        public async Task<List<Police>> GetAll()
+        {
+            var policeList = await _policeRepository.GetAll();
+
+            return policeList;
+        }
     }
 }

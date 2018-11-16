@@ -11,5 +11,7 @@ namespace SigmaDzuwenalia.BuisnessServices.Police
         Task Add(Police police);
         Task Delete(int id);
         Task Edit(Police police);
+        Task<Police> GetById(int id);
+        Task <List<Police>>GetAll();
     }
 }
