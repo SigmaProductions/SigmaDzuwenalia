@@ -12,6 +12,6 @@ namespace SigmaDzuwenalia.BuisnessServices.Flanki
         Task Edit(Flanki flanki);
         Task<Flanki> GetById(int id);
         Task<List<Flanki>> GetAll();
-        Task Delete(Flanki flanki);
+        Task Delete(int id);
     }
 }

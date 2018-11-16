@@ -59,10 +59,10 @@ namespace SigmaDzuwenalia.Controllers
 
         }
         [HttpPost]
-        public async Task<IHttpActionResult> Delete(FlankiResource flankiResource)
+        public async Task<IHttpActionResult> Delete(int id)
         {
-            var flanki = Mapper.Map<Flanki>(flankiResource);
-            await _flankiService.Delete(flanki);
+            
+            await _flankiService.Delete(id);
 
             return Ok();
         }
