@@ -10,5 +10,9 @@ namespace SigmaDzuwenalia.BuisnessServices.Repositories
     public interface IFlankiRepository
     {
         Task Add(Flanki.Flanki flanki);
+        Task Edit(Flanki.Flanki flanki);
+        Task <Flanki.Flanki>GetById(int id);
+        Task<List<Flanki.Flanki>> GetAll();
+        Task Delete(int id);
     }
 }
