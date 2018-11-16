@@ -23,8 +23,8 @@ namespace SigmaDzuwenalia.Controllers
         [HttpPost]
         public async Task<IHttpActionResult> Add(PoliceResource policeResource)
         {
-            Police police = new Police();
-            await _policeService.Add(police);
+            var mappedPolice = AutoMapper.Mapper.Map<Police>(policeResource);
+            await _policeService.Add(mappedPolice);
 
             return Ok();
         }
