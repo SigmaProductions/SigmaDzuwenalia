@@ -30,5 +30,41 @@ namespace SigmaDzuwenalia.Controllers
             return Ok();
         }
 
+        [HttpPost]
+        public async Task<IHttpActionResult> Edit(FlankiResource flankiResource)
+        {
+            var flanki = Mapper.Map<Flanki>(flankiResource);
+            await _flankiService.Edit(flanki);
+
+            return Ok();
+        }
+        [HttpGet]
+        public async Task<FlankiResource> GetById(int id)
+        {
+
+            var flanki = await _flankiService.GetById(id);
+            var myId = Mapper.Map<FlankiResource>(flanki);
+            return myId;
+
+        }
+
+        [HttpGet]
+        public async Task<List<FlankiResource>> GetAll()
+        {
+
+            var flanki = await _flankiService.GetAll();
+            var mappedFlanki = Mapper.Map<List<FlankiResource>>(flanki);
+            
+            return mappedFlanki;
+
+        }
+        [HttpPost]
+        public async Task<IHttpActionResult> Delete(FlankiResource flankiResource)
+        {
+            var flanki = Mapper.Map<Flanki>(flankiResource);
+            await _flankiService.Delete(flanki);
+
+            return Ok();
+        }
     }
 }
