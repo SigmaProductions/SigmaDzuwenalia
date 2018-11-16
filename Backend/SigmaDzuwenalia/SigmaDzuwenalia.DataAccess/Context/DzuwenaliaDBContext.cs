@@ -1,25 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SigmaDzuwenalia.DataAccess.Entities;
 
+
 namespace SigmaDzuwenalia.DataAccess.Context
 {
-    public class DzuwenaliaDBContext : IDzuwenaliaDBContext
+    public class DzuwenaliaDBContext : DbContext, IDzuwenaliaDBContext
     {
-        public IDbSet<FlankiEntity> Flanki { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public IDbSet<FlankiEntity> Flanki { get; set; }
 
-        public void Dispose()
+
+        public DzuwenaliaDBContext(DbConnection existingConnection, bool contextOwnsConnection)
+           :base(existingConnection, contextOwnsConnection)
         {
-            throw new NotImplementedException();
+
+        }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<FlankiEntity>().ToTable("FlankiData");
         }
 
-        public Task SaveChanges()
+        async Task IDzuwenaliaDBContext.SaveChanges()
         {
-            throw new NotImplementedException();
+            await base.SaveChangesAsync() ;
         }
     }
 }

@@ -4,6 +4,11 @@ using System.Web.Http;
 using SigmaDzuwenalia.Controllers;
 using System.Reflection;
 using SigmaDzuwenalia.BuisnessServices.Flanki;
+using SigmaDzuwenalia.DataAccess.Context;
+using SigmaDzuwenalia.DataAccess.Factories;
+using SigmaDzuwenalia.DataAccess.Providers;
+using SigmaDzuwenalia.DataAccess.Repositories;
+using SigmaDzuwenalia.BuisnessServices.Repositories;
 
 namespace SigmaDzuwenalia.IoC
 {
@@ -24,6 +29,10 @@ namespace SigmaDzuwenalia.IoC
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
             builder.RegisterType<FlankiController>().InstancePerLifetimeScope();
             builder.RegisterType<FlankiService>().As<IFlankiService>().InstancePerLifetimeScope();
+            builder.RegisterType<FlankiRepository>().As<IFlankiRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<DzuwenaliaDBContext>().As<IDzuwenaliaDBContext>().InstancePerLifetimeScope();
+            builder.RegisterType<DzuwenaliaDBContextFactory>().As<IDzuwenaliaDBContextFactory>().InstancePerLifetimeScope();
+            builder.RegisterType<DatabaseSettingsProvider>().As<IDatabaseSettingsProvider>().InstancePerLifetimeScope();
             builder.RegisterWebApiFilterProvider(config);
             Container = builder.Build();
             return Container;

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using SigmaDzuwenalia.DataAccess.Entities;
 using SigmaDzuwenalia.Models;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace SigmaDzuwenalia
             Mapper.Initialize((config) =>
             {
                 config.CreateMap<FlankiResource, BuisnessServices.Flanki.Flanki>().ReverseMap();
-                
+                config.CreateMap<BuisnessServices.Flanki.Flanki, FlankiEntity>().ReverseMap();
             });
         }
     }

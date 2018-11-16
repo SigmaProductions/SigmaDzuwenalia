@@ -141,6 +141,10 @@
       <Project>{BD238487-B5F8-40DC-BB6A-8C57B470B740}</Project>
       <Name>SigmaDzuwenalia.BuisnessServices</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SigmaDzuwenalia.DataAccess\SigmaDzuwenalia.DataAccess.csproj">
+      <Project>{B63EE2B6-DFEF-4716-A4FB-73F02A79309C}</Project>
+      <Name>SigmaDzuwenalia.DataAccess</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
