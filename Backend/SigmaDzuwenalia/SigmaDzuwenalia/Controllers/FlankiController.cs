@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using AutoMapper;
 using System.Web.Http;
 
 namespace SigmaDzuwenalia.Controllers
@@ -23,10 +24,11 @@ namespace SigmaDzuwenalia.Controllers
         [HttpPost]
         public async Task<IHttpActionResult> Add(FlankiResource flankiResource)
         {
-            Flanki flanki = new Flanki();
+            var flanki = Mapper.Map<Flanki>(flankiResource);
             await _flankiService.Add(flanki);
 
             return Ok();
         }
+
     }
 }
