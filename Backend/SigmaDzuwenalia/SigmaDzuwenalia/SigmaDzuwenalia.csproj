@@ -117,11 +117,13 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="AutoMapperConfig.cs" />
     <Compile Include="Controllers\FlankiController.cs" />
+    <Compile Include="Controllers\PoliceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="IoC\IoCConfiguration.cs" />
     <Compile Include="Models\FlankiResource.cs" />
+    <Compile Include="Models\PoliceResource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
