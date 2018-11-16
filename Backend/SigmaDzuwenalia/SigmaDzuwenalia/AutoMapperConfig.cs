@@ -15,7 +15,7 @@ namespace SigmaDzuwenalia
             {
                 config.CreateMap<FlankiResource, BuisnessServices.Flanki.Flanki>().ReverseMap();
                 config.CreateMap<PoliceResource, BuisnessServices.Police.Police>().ReverseMap();
-                
+                config.CreateMap<DropPlaceResource, BuisnessServices.DropPlace.DropPlace>().ReverseMap();
             });
         }
     }

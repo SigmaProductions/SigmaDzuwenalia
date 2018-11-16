@@ -23,8 +23,8 @@ namespace SigmaDzuwenalia.Controllers
         [HttpPost]
         public async Task<IHttpActionResult> Add(DropPlaceResource dropPlaceResource)
         {
-            DropPlace dropPlace = new DropPlace();
-            await _dropPlaceService.Add(dropPlace);
+            var mappedDropPlace = AutoMapper.Mapper.Map<DropPlace>(dropPlaceResource);
+            await _dropPlaceService.Add(mappedDropPlace);
 
             return Ok();
         }
