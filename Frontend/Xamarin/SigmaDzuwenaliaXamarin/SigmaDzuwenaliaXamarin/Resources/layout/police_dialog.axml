@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="270dp"
+		android:background="@android:color/holo_red_dark">
+		<TextView
+			android:layout_marginTop="10dp"
+			android:layout_marginLeft="20dp"
+			android:layout_margin="20dp"
+			android:textStyle="bold"
+			android:layout_width="match_parent"
+			android:layout_height="60dp"
+			android:textSize="19dp"
+			android:fontFamily="Impact"
+			android:textColor="@color/common_google_signin_btn_text_light"
+			android:text="Dodajesz miejsce pobytu stróżów prawa"
+			android:background="@color/common_google_signin_btn_text_light_focused"/>
+		<TextView
+			android:layout_marginTop="10dp"
+			android:layout_marginLeft="15dp"
+			android:layout_margin="10dp"
+			android:textStyle="bold"
+			android:layout_width="match_parent"
+			android:layout_height="50dp"
+			android:textSize="19dp"
+			android:fontFamily="Impact"
+			android:textColor="@color/common_google_signin_btn_text_light"
+			android:text="Dodatkowe informacje"/>
+	<EditText android:layout_width="match_parent"
+		android:textSize="19dp"
+			android:layout_height="50dp"/>
+		<Button
+			android:text="wskaż lokalizację"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/button1" />
+		</LinearLayout>
+	
+</LinearLayout>

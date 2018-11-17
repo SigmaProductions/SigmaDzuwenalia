@@ -42,14 +42,14 @@ namespace SigmaDzuwenaliaXamarin
             var request = HttpWebRequest.Create(string.Format(_url));
             request.ContentType = "application/json";
             request.Method = "GET";
-
+            return ("");
             using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
             {
                 if (response.StatusCode != HttpStatusCode.OK)
                     Console.Out.WriteLine("Error fetching data. Server returned status code: {0}", response.StatusCode);
                 using (StreamReader reader = new StreamReader(response.GetResponseStream()))
                 {
-                    return(reader.ReadToEnd());
+                    return (reader.ReadToEnd());
                 }
             }
         }

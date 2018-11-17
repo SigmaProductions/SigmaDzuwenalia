@@ -78,10 +78,10 @@ namespace SigmaDzuwenaliaXamarin
             googleMap.SetOnMapClickListener(this);
 
             _googleMap = googleMap;
-            foreach (var a in ConnectionHelper.GetAllPolice())
-            {
-                MarkPolice(a.PatrolDate, new LatLng(a.XCoordinate, a.YCoordinate));
-            }
+            //foreach (var a in ConnectionHelper.GetAllPolice())
+            //{
+            //    MarkPolice(a.PatrolDate, new LatLng(a.XCoordinate, a.YCoordinate));
+            //}
         }
 
 

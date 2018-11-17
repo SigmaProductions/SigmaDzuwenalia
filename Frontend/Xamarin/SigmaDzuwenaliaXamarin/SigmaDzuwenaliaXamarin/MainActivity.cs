@@ -93,6 +93,10 @@ namespace SigmaDzuwenaliaXamarin
         private void ReportPoliceOnClick(object sender, EventArgs eventArgs)
         {
             
+
+            var s= new Android.App.AlertDialog.Builder(this);
+            s.SetView(2130968633);
+            s.Show();
             MapController.MapState = MapState.PLACING_POLICE;
         }
         
