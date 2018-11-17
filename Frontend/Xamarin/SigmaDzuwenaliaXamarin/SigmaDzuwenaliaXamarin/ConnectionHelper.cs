@@ -74,6 +74,46 @@ namespace SigmaDzuwenaliaXamarin
             return JsonConvert.DeserializeObject<List<PolicePickle>>(output);
         }
 
+        public static void SendFlanki(LatLng point)
+        {
+            var t = new FlankiPickle();
+            t.Id = 0;
+            t.date = DateTime.Now;
+            t.coordinate_x = point.Latitude;
+            t.coordinate_y = point.Longitude;
+            name = "testname";
+            t.counter = 0;
+
+            string output = JsonConvert.SerializeObject(t);
+            PostJson(output, urlPrefix + "/api/Flanki");
+        }
+
+        public static List<FlankiPickle> GetAllFlanki()
+        {
+            string output = GetJson(urlPrefix + "/api/Flanki");
+            return JsonConvert.DeserializeObject<List<FlankiPickle>>(output);
+        }
+
+        public static void SendDrop(LatLng point)
+        {
+            var t = new DropPickle();
+            t.Id = 0;
+            t.DtopType = "type";
+            t.DropDate = DateTime.Now;
+            t.XCoordinate = point.Latitude;
+            t.YCoordinate = point.Longitude;
+
+            string output = JsonConvert.SerializeObject(t);
+            PostJson(output, urlPrefix + "/api/DropPlace");
+
+
+        }
+
+        public static List<DropPickle> GettAllDropPlace()
+        {
+            string output = GetJson(urlPrefix + "/api/DropPlace");
+            return JsonConvert.DeserializeObject<List<DropPickle>>(output);
+        }
 
     }
 }
