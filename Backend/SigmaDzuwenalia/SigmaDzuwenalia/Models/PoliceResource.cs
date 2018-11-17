@@ -8,5 +8,9 @@ namespace SigmaDzuwenalia.Models
     public class PoliceResource
     {
         public int Id;
+        public double XCoordinate;
+        public double YCoordinate;
+        public int PatrolSize;
+        public DateTime PatrolDate;
     }
 }

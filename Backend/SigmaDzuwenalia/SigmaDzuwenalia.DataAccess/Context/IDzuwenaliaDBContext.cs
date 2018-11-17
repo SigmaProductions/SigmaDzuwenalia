@@ -14,7 +14,7 @@ namespace SigmaDzuwenalia.DataAccess.Context
 
         IDbSet<PoliceEntity> Police { get; set; }
 
-        IDbSet<DropPlaceEntity> Dropplaces { get; set; }
+        IDbSet<DropPlaceEntity> DropPlace { get; set; }
         
         Task SaveChanges();
     }

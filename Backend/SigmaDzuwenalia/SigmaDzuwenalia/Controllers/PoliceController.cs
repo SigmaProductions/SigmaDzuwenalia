@@ -15,6 +15,7 @@ namespace SigmaDzuwenalia.Controllers
     public class PoliceController : ApiController
     {
         private readonly IPoliceService _policeService;
+
         public PoliceController(IPoliceService policeService)
         {
             _policeService = policeService;

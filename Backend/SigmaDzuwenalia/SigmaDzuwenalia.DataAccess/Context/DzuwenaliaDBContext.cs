@@ -14,7 +14,7 @@ namespace SigmaDzuwenalia.DataAccess.Context
     {
         public IDbSet<FlankiEntity> Flanki { get; set; }
         public IDbSet<PoliceEntity> Police { get ; set ; }
-        public IDbSet<DropPlaceEntity> Dropplaces { get; set ; }
+        public IDbSet<DropPlaceEntity> DropPlace { get; set ; }
 
         public DzuwenaliaDBContext(DbConnection existingConnection, bool contextOwnsConnection)
            :base(existingConnection, contextOwnsConnection)
