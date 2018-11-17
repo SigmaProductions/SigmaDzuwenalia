@@ -65,10 +65,10 @@
     <Compile Include="Entities\PoliceEntity.cs" />
     <Compile Include="Factories\DzuwenaliaDBContextFactory.cs" />
     <Compile Include="Factories\IDzuwenaliaDBContextFactory.cs" />
+    <Compile Include="Providers\DatabaseSettingsProvider.cs" />
     <Compile Include="Repositories\DropPlaceRepository.cs" />
     <Compile Include="Repositories\FlankiRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Providers\DatabaseSettingsProvider.cs" />
     <Compile Include="Providers\IDatabaseSettingsProvider.cs" />
     <Compile Include="Repositories\PoliceRepository.cs" />
   </ItemGroup>

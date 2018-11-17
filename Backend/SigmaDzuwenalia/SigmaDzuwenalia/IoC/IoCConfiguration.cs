@@ -36,14 +36,15 @@ namespace SigmaDzuwenalia.IoC
 
             builder.RegisterType<PoliceController>().InstancePerLifetimeScope();
             builder.RegisterType<PoliceService>().As<IPoliceService>().InstancePerLifetimeScope();
+            builder.RegisterType<PoliceRepository>().As<IPoliceRepository>().InstancePerLifetimeScope();
 
             builder.RegisterType<DropPlaceController>().InstancePerLifetimeScope();
             builder.RegisterType<DropPlaceService>().As<IDropPlaceService>().InstancePerLifetimeScope();
+            builder.RegisterType<DropPlaceRepository>().As<IDropPlaceRepository>().InstancePerLifetimeScope();
 
             builder.RegisterType<DzuwenaliaDBContext>().As<IDzuwenaliaDBContext>().InstancePerLifetimeScope();
             builder.RegisterType<DzuwenaliaDBContextFactory>().As<IDzuwenaliaDBContextFactory>().InstancePerLifetimeScope();
             builder.RegisterType<DatabaseSettingsProvider>().As<IDatabaseSettingsProvider>().InstancePerLifetimeScope();
-            builder.RegisterWebApiFilterProvider(config);
             Container = builder.Build();
             return Container;
         }

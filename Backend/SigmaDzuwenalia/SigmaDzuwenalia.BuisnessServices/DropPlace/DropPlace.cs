@@ -9,5 +9,9 @@ namespace SigmaDzuwenalia.BuisnessServices.DropPlace
     public class DropPlace
     {
         public int Id;
+        public double XCoordinate;
+        public double YCoordinate;
+        public string DropType;
+        public DateTime DropDate;
     }
 }
