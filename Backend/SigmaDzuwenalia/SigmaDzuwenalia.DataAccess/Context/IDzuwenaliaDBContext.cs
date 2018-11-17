@@ -11,6 +11,10 @@ namespace SigmaDzuwenalia.DataAccess.Context
     public interface IDzuwenaliaDBContext: IDisposable
     {
         IDbSet<FlankiEntity> Flanki { get; set; }
+
+        IDbSet<PoliceEntity> Police { get; set; }
+
+        IDbSet<DropPlaceEntity> Dropplaces { get; set; }
         
         Task SaveChanges();
     }

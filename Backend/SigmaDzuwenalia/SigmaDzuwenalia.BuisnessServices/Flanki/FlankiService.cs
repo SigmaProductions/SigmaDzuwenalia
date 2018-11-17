@@ -18,5 +18,27 @@ namespace SigmaDzuwenalia.BuisnessServices.Flanki
         {
             await _flankiRepository.Add(flanki);
         }
+
+        public async Task Edit(Flanki flanki)
+        {
+            await _flankiRepository.Edit(flanki);
+        }
+
+        public async Task<Flanki> GetById(int id)
+        {
+            var flanki = await _flankiRepository.GetById(id);
+            return flanki;
+        }
+
+        public async Task<List<Flanki>> GetAll()
+        {
+            var flanki = await _flankiRepository.GetAll();
+            return flanki;
+        }
+        public async Task Delete(int id)
+        {
+            await _flankiRepository.Delete(id);
+        }
+
     }
 }

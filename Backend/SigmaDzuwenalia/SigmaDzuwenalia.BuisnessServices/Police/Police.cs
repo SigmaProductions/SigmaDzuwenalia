@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SigmaDzuwenalia.BuisnessServices.Flanki
+namespace SigmaDzuwenalia.BuisnessServices.Police
 {
-    public class Flanki
+    public class Police
     {
         public int Id;
     }

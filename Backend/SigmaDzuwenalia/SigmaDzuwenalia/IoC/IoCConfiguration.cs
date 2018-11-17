@@ -9,6 +9,8 @@ using SigmaDzuwenalia.DataAccess.Factories;
 using SigmaDzuwenalia.DataAccess.Providers;
 using SigmaDzuwenalia.DataAccess.Repositories;
 using SigmaDzuwenalia.BuisnessServices.Repositories;
+using SigmaDzuwenalia.BuisnessServices.Police;
+using SigmaDzuwenalia.BuisnessServices.DropPlace;
 
 namespace SigmaDzuwenalia.IoC
 {
@@ -27,9 +29,17 @@ namespace SigmaDzuwenalia.IoC
         private static IContainer RegisterServices(ContainerBuilder builder, HttpConfiguration config)
         {
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
+
             builder.RegisterType<FlankiController>().InstancePerLifetimeScope();
             builder.RegisterType<FlankiService>().As<IFlankiService>().InstancePerLifetimeScope();
             builder.RegisterType<FlankiRepository>().As<IFlankiRepository>().InstancePerLifetimeScope();
+
+            builder.RegisterType<PoliceController>().InstancePerLifetimeScope();
+            builder.RegisterType<PoliceService>().As<IPoliceService>().InstancePerLifetimeScope();
+
+            builder.RegisterType<DropPlaceController>().InstancePerLifetimeScope();
+            builder.RegisterType<DropPlaceService>().As<IDropPlaceService>().InstancePerLifetimeScope();
+
             builder.RegisterType<DzuwenaliaDBContext>().As<IDzuwenaliaDBContext>().InstancePerLifetimeScope();
             builder.RegisterType<DzuwenaliaDBContextFactory>().As<IDzuwenaliaDBContextFactory>().InstancePerLifetimeScope();
             builder.RegisterType<DatabaseSettingsProvider>().As<IDatabaseSettingsProvider>().InstancePerLifetimeScope();

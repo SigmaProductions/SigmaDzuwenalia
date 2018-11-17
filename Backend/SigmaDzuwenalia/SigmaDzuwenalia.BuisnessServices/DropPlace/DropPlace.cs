@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SigmaDzuwenalia.BuisnessServices.Flanki
+namespace SigmaDzuwenalia.BuisnessServices.DropPlace
 {
-    public class Flanki
+    public class DropPlace
     {
         public int Id;
     }

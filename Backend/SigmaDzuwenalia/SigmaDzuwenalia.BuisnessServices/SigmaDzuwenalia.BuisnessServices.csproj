@@ -50,11 +50,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DropPlace\DropPlace.cs" />
+    <Compile Include="DropPlace\DropPlaceService.cs" />
+    <Compile Include="DropPlace\IDropPlaceService.cs" />
     <Compile Include="Flanki\Flanki.cs" />
     <Compile Include="Flanki\FlankiService.cs" />
     <Compile Include="Flanki\IFlankiService.cs" />
+    <Compile Include="Police\IPoliceService.cs" />
+    <Compile Include="Police\Police.cs" />
+    <Compile Include="Police\PoliceService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IDropPlaceRespository.cs" />
     <Compile Include="Repositories\IFlankiRepository.cs" />
+    <Compile Include="Repositories\IPoliceRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

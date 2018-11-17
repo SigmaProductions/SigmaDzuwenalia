@@ -5,7 +5,7 @@ using System.Web;
 
 namespace SigmaDzuwenalia.Models
 {
-    public class FlankiResource
+    public class PoliceResource
     {
         public int Id;
     }

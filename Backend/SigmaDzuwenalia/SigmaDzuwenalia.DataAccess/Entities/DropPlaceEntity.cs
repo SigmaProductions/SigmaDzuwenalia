@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SigmaDzuwenalia.BuisnessServices.Flanki
+namespace SigmaDzuwenalia.DataAccess.Entities
 {
-    public class Flanki
+    public class DropPlaceEntity
     {
-        public int Id;
+        public int Id { get; set; }
     }
 }

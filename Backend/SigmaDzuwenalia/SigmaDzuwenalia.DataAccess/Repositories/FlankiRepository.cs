@@ -25,5 +25,25 @@ namespace SigmaDzuwenalia.DataAccess.Repositories
             dbContext.Flanki.Add(mappedFlanki);
             await dbContext.SaveChanges();
         }
+
+        public Task Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task Edit(Flanki flanki)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<Flanki>> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Flanki> GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
