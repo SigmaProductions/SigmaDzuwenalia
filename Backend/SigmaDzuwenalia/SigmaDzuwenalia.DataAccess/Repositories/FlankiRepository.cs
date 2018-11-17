@@ -48,6 +48,14 @@ namespace SigmaDzuwenalia.DataAccess.Repositories
 
         }
 
+        public async Task Vote(int id)
+        {
+            var dbContext = _dzuwenaliaDBContextFactory.Create();
+            var flankiToVote = dbContext.Flanki.FirstOrDefault(x => x.Id == id);
+            flankiToVote.counter++;
+            await dbContext.SaveChanges();
+        }
+
         public async Task<List<Flanki>> GetAll()
         {
             var dbContext = _dzuwenaliaDBContextFactory.Create();

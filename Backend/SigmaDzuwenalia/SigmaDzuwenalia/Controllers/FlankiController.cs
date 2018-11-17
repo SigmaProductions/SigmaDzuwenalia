@@ -38,6 +38,14 @@ namespace SigmaDzuwenalia.Controllers
 
             return Ok();
         }
+
+        [HttpPut]
+        public async Task<IHttpActionResult> Vote(int id)
+        {
+            await _flankiService.Vote(id);
+            return Ok();
+        }
+
         [HttpGet]
         public async Task<FlankiResource> GetById(int id)
         {
@@ -51,17 +59,14 @@ namespace SigmaDzuwenalia.Controllers
         [HttpGet]
         public async Task<List<FlankiResource>> GetAll()
         {
-
             var flanki = await _flankiService.GetAll();
             var mappedFlanki = Mapper.Map<List<FlankiResource>>(flanki);
             
             return mappedFlanki;
-
         }
         [HttpDelete]
         public async Task<IHttpActionResult> Delete(int id)
         {
-            
             await _flankiService.Delete(id);
 
             return Ok();

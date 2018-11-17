@@ -10,9 +10,9 @@ namespace SigmaDzuwenalia.BuisnessServices.Flanki
     {
         public int Id { get; set; }
         public DateTime date { get; set; }
-        public float coordinate_x { get; set; }
-        public float coordinate_y { get; set; }
+        public double coordinate_x { get; set; }
+        public double coordinate_y { get; set; }
         public string name { get; set; }
-        
+        public int counter { get; set; }
     }
 }
