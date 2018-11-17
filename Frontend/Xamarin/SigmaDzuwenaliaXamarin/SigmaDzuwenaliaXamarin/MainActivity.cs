@@ -54,8 +54,8 @@ namespace SigmaDzuwenaliaXamarin
             SetSupportActionBar(toolbar);
 
 
-            FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
-            fab.Click += FabOnClick;
+            Button report = FindViewById<Button>(Resource.Id.reportPolice);
+            report.Click += ReportPoliceOnClick; 
 
         }
 
@@ -75,7 +75,7 @@ namespace SigmaDzuwenaliaXamarin
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             int id = item.ItemId;
-            if (id == Resource.Id.action_settings)
+            if (id == Resource.Id.action_flanki)
             {
                 return true;
             }
@@ -83,20 +83,12 @@ namespace SigmaDzuwenaliaXamarin
             return base.OnOptionsItemSelected(item);
         }
 
-        private class SnackListener :AppCompatActivity, Android.Views.View.IOnClickListener
+       
+        private void ReportPoliceOnClick(object sender, EventArgs eventArgs)
         {
-            public void OnClick(View v)
-            {
-                MapController.MapState = MapState.PLACING_POLICE;
-            }
+            MapController.MapState = MapState.PLACING_POLICE;
         }
-        private void FabOnClick(object sender, EventArgs eventArgs)
-        {
-            View view = (View)sender;
-            Snackbar.Make(view, "Zaznacz patrol", Snackbar.LengthLong)
-                .SetAction("PATROL", new SnackListener()).Show();
-            
-        }
+        
 
 
     }

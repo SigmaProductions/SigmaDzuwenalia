@@ -19,8 +19,11 @@ namespace SigmaDzuwenaliaXamarin
 {
     enum MapState { PLACING_POLICE, NULL };
 
+
+
     class MapController : AppCompatActivity,IOnMapReadyCallback, IOnMapClickListener
     {
+        private const int _iconSize=35;
         static public MapState MapState= MapState.NULL;
         private GoogleMap _googleMap;
 
@@ -33,8 +36,9 @@ namespace SigmaDzuwenaliaXamarin
             {
                 case (MapState.PLACING_POLICE):
                     //2130837627
-                    bmDescriptor = BitmapDescriptorFactory.FromBitmap(resizeMapIcons(2130837627, 24,24));
-                    
+                    bmDescriptor = BitmapDescriptorFactory.FromBitmap(resizeMapIcons(2130837627, _iconSize,_iconSize));
+                    ConnectionHelper.SendPolice(point);
+                    MapController.MapState = MapState.NULL;
                     break;
 
                 case (MapState.NULL):
@@ -57,7 +61,7 @@ namespace SigmaDzuwenaliaXamarin
 
         private Bitmap resizeMapIcons(int id, int width, int height)
         {
-            var imageBitmap = BitmapFactory.DecodeResource(this.Application.Resources, id);
+            var imageBitmap = BitmapFactory.DecodeResource(Android.App.Application.Context.Resources, id);
             Bitmap resizedBitmap = Bitmap.CreateScaledBitmap(imageBitmap, width, height, false);
             return resizedBitmap;
         }
