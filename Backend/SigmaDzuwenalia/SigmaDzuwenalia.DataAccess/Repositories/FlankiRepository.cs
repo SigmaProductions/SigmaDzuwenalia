@@ -4,6 +4,7 @@ using SigmaDzuwenalia.DataAccess.Entities;
 using SigmaDzuwenalia.DataAccess.Factories;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,24 +27,43 @@ namespace SigmaDzuwenalia.DataAccess.Repositories
             await dbContext.SaveChanges();
         }
 
-        public Task Delete(int id)
+        public async Task Delete(int id)
         {
-            throw new NotImplementedException();
+            var dbContext = _dzuwenaliaDBContextFactory.Create();
+            var flankiToDelete = dbContext.Flanki.FirstOrDefault(x => x.Id == id);
+            dbContext.Flanki.Remove(flankiToDelete);
+            await dbContext.SaveChanges();
         }
 
-        public Task Edit(Flanki flanki)
+        public async Task Edit(Flanki flanki)
         {
-            throw new NotImplementedException();
+            var dbContext = _dzuwenaliaDBContextFactory.Create();
+
+            var flankiToEdit = dbContext.Flanki.FirstOrDefault(x => x.Id == flanki.Id);
+            flankiToEdit.coordinate_x = flanki.coordinate_x;
+            flankiToEdit.coordinate_y = flanki.coordinate_y;
+            flankiToEdit.date = flanki.date;
+            flankiToEdit.name = flanki.name;
+            await dbContext.SaveChanges();
+
         }
 
-        public Task<List<Flanki>> GetAll()
+        public async Task<List<Flanki>> GetAll()
         {
-            throw new NotImplementedException();
+            var dbContext = _dzuwenaliaDBContextFactory.Create();
+            var all = await dbContext.Flanki.ToListAsync();
+            var mappedFlanki = AutoMapper.Mapper.Map<List<Flanki>>(all);
+            return mappedFlanki;
         }
 
-        public Task<Flanki> GetById(int id)
+        public async Task<Flanki> GetById(int id)
         {
-            throw new NotImplementedException();
+            var dbContext = _dzuwenaliaDBContextFactory.Create();
+            var myId = dbContext.Flanki.FirstOrDefault(x => x.Id == id);
+            var mappedId = AutoMapper.Mapper.Map<Flanki>(myId);
+            return mappedId;
+
+
         }
     }
 }
