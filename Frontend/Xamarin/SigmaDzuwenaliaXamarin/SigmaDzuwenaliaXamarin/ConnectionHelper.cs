@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
-
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Gms.Maps.Model;
@@ -13,20 +13,47 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Newtonsoft.Json;
+using SigmaDzuwenaliaXamarin.Pickles;
 
 namespace SigmaDzuwenaliaXamarin
 {
-    class PolicePickle
-    {
-        public int Id;
-        public double XCoordinate;
-        public double YCoordinate;
-        public int PatrolSize;
-        public DateTime PatrolDate;
-    }
+    
 
     static class ConnectionHelper
     {
+        private const string urlPrefix = "http://22160ab1.ngrok.io";
+        private static async void PostJson(string json, string _url)
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(_url);
+            request.Method = "POST";
+
+
+            byte[] byteArray = Encoding.UTF8.GetBytes(json);
+            request.ContentType = "application/json";
+            request.ContentLength = byteArray.Length;
+            Stream dataStream = request.GetRequestStream();
+
+            await dataStream.WriteAsync(byteArray, 0, byteArray.Length);
+            dataStream.Close();
+        }
+
+        private static string GetJson(string _url)
+        {
+            var request = HttpWebRequest.Create(string.Format(_url));
+            request.ContentType = "application/json";
+            request.Method = "GET";
+
+            using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
+            {
+                if (response.StatusCode != HttpStatusCode.OK)
+                    Console.Out.WriteLine("Error fetching data. Server returned status code: {0}", response.StatusCode);
+                using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+                {
+                    return(reader.ReadToEnd());
+                }
+            }
+        }
+
         public static void SendPolice(LatLng point)
         {
             var t = new PolicePickle();
@@ -38,18 +65,15 @@ namespace SigmaDzuwenaliaXamarin
 
             string output =JsonConvert.SerializeObject(t);
 
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://d2b608e3.ngrok.io/api/Police");
-            request.Method = "POST";
-
-
-            byte[] byteArray = Encoding.UTF8.GetBytes(output);
-            request.ContentType = "application/json";
-            request.ContentLength = byteArray.Length;
-            Stream dataStream = request.GetRequestStream();
-
-            dataStream.WriteAsync(byteArray, 0, byteArray.Length);
-            dataStream.Close();
+            PostJson(output, urlPrefix+"/api/Police"); 
         }
+
+        public static List<PolicePickle> GetAllPolice()
+        {
+            string output =  GetJson(urlPrefix+"/api/Police");
+            return JsonConvert.DeserializeObject<List<PolicePickle>>(output);
+        }
+
 
     }
 }
