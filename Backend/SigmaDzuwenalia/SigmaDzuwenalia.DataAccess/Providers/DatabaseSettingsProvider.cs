@@ -12,7 +12,7 @@ namespace SigmaDzuwenalia.DataAccess.Providers
         public DatabaseConnectionSettings GetSettings()
         {
             
-            var connection = @"Server=JAPKO\SQLEXPRESS;Database=DzuwenaliaDB;Trusted_Connection=True;";
+            var connection = @"Server=ASPIRE\SQLEXPRESS;Database=DzuwenaliaDB;Trusted_Connection=True;";
             return new DatabaseConnectionSettings(connection);
         }
     }

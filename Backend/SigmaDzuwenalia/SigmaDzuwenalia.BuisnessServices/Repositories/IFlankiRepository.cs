@@ -11,6 +11,7 @@ namespace SigmaDzuwenalia.BuisnessServices.Repositories
     {
         Task Add(Flanki.Flanki flanki);
         Task Edit(Flanki.Flanki flanki);
+        Task Vote(int id);
         Task <Flanki.Flanki>GetById(int id);
         Task<List<Flanki.Flanki>> GetAll();
         Task Delete(int id);
