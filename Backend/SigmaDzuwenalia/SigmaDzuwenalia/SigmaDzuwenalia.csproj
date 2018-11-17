@@ -115,12 +115,17 @@
   <ItemGroup>
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="AutoMapperConfig.cs" />
+    <Compile Include="Controllers\DropPlaceController.cs" />
     <Compile Include="Controllers\FlankiController.cs" />
+    <Compile Include="Controllers\PoliceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="IoC\IoCConfiguration.cs" />
+    <Compile Include="Models\DropPlaceResources.cs" />
     <Compile Include="Models\FlankiResource.cs" />
+    <Compile Include="Models\PoliceResource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +144,10 @@
     <ProjectReference Include="..\SigmaDzuwenalia.BuisnessServices\SigmaDzuwenalia.BuisnessServices.csproj">
       <Project>{BD238487-B5F8-40DC-BB6A-8C57B470B740}</Project>
       <Name>SigmaDzuwenalia.BuisnessServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SigmaDzuwenalia.DataAccess\SigmaDzuwenalia.DataAccess.csproj">
+      <Project>{B63EE2B6-DFEF-4716-A4FB-73F02A79309C}</Project>
+      <Name>SigmaDzuwenalia.DataAccess</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

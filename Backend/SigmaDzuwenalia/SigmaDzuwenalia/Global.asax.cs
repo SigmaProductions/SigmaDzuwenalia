@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SigmaDzuwenalia.IoC;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,10 @@ namespace SigmaDzuwenalia
     {
         protected void Application_Start()
         {
+            AutoMapperConfig.Initialize();
+            IoCConfiguration.Initialize(GlobalConfiguration.Configuration);
             GlobalConfiguration.Configure(WebApiConfig.Register);
+
         }
     }
 }

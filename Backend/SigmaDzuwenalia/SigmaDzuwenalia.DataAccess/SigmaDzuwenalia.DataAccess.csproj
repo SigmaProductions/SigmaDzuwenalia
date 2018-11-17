@@ -36,7 +36,15 @@
     <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -50,10 +58,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Context\DzuwenaliaDBContext.cs" />
+    <Compile Include="Context\IDzuwenaliaDBContext.cs" />
+    <Compile Include="Entities\DropPlaceEntity.cs" />
+    <Compile Include="Entities\FlankiEntity.cs" />
+    <Compile Include="Entities\PoliceEntity.cs" />
+    <Compile Include="Factories\DzuwenaliaDBContextFactory.cs" />
+    <Compile Include="Factories\IDzuwenaliaDBContextFactory.cs" />
+    <Compile Include="Providers\DatabaseSettingsProvider.cs" />
+    <Compile Include="Repositories\DropPlaceRepository.cs" />
+    <Compile Include="Repositories\FlankiRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\IDatabaseSettingsProvider.cs" />
+    <Compile Include="Repositories\PoliceRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SigmaDzuwenalia.BuisnessServices\SigmaDzuwenalia.BuisnessServices.csproj">
+      <Project>{BD238487-B5F8-40DC-BB6A-8C57B470B740}</Project>
+      <Name>SigmaDzuwenalia.BuisnessServices</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,6 +4,13 @@ using System.Web.Http;
 using SigmaDzuwenalia.Controllers;
 using System.Reflection;
 using SigmaDzuwenalia.BuisnessServices.Flanki;
+using SigmaDzuwenalia.DataAccess.Context;
+using SigmaDzuwenalia.DataAccess.Factories;
+using SigmaDzuwenalia.DataAccess.Providers;
+using SigmaDzuwenalia.DataAccess.Repositories;
+using SigmaDzuwenalia.BuisnessServices.Repositories;
+using SigmaDzuwenalia.BuisnessServices.Police;
+using SigmaDzuwenalia.BuisnessServices.DropPlace;
 
 namespace SigmaDzuwenalia.IoC
 {
@@ -22,9 +29,22 @@ namespace SigmaDzuwenalia.IoC
         private static IContainer RegisterServices(ContainerBuilder builder, HttpConfiguration config)
         {
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
+
             builder.RegisterType<FlankiController>().InstancePerLifetimeScope();
             builder.RegisterType<FlankiService>().As<IFlankiService>().InstancePerLifetimeScope();
-            builder.RegisterWebApiFilterProvider(config);
+            builder.RegisterType<FlankiRepository>().As<IFlankiRepository>().InstancePerLifetimeScope();
+
+            builder.RegisterType<PoliceController>().InstancePerLifetimeScope();
+            builder.RegisterType<PoliceService>().As<IPoliceService>().InstancePerLifetimeScope();
+            builder.RegisterType<PoliceRepository>().As<IPoliceRepository>().InstancePerLifetimeScope();
+
+            builder.RegisterType<DropPlaceController>().InstancePerLifetimeScope();
+            builder.RegisterType<DropPlaceService>().As<IDropPlaceService>().InstancePerLifetimeScope();
+            builder.RegisterType<DropPlaceRepository>().As<IDropPlaceRepository>().InstancePerLifetimeScope();
+
+            builder.RegisterType<DzuwenaliaDBContext>().As<IDzuwenaliaDBContext>().InstancePerLifetimeScope();
+            builder.RegisterType<DzuwenaliaDBContextFactory>().As<IDzuwenaliaDBContextFactory>().InstancePerLifetimeScope();
+            builder.RegisterType<DatabaseSettingsProvider>().As<IDatabaseSettingsProvider>().InstancePerLifetimeScope();
             Container = builder.Build();
             return Container;
         }
