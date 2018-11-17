@@ -64,6 +64,7 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="MapController.cs" />
     <Compile Include="Pickles\DropPickle.cs" />
+    <Compile Include="Pickles\LocationPickle.cs" />
     <Compile Include="Pickles\PolicePickle.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

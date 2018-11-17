@@ -12,10 +12,10 @@ using Android.Widget;
 
 namespace SigmaDzuwenaliaXamarin.Pickles
 {
-    class PolicePickle:LocationPickle
+    class LocationPickle
     {
-        
-        public int PatrolSize;
-        public DateTime PatrolDate;
+        public int Id;
+        public double XCoordinate;
+        public double YCoordinate;
     }
 }

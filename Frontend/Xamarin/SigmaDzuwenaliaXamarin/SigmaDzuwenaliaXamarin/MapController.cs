@@ -37,20 +37,34 @@ namespace SigmaDzuwenaliaXamarin
             markerOption.SetIcon(bmDescriptor);
             _googleMap.AddMarker(markerOption);
         }
+        private void MarkColor(LatLng pos,string title, 
+            float color)
+        {
+            var markerOption = new MarkerOptions().SetPosition(pos);
+            markerOption.SetTitle(title);
+            var bmDescriptor = BitmapDescriptorFactory.DefaultMarker(color);
+            markerOption.SetIcon(bmDescriptor);
+            _googleMap.AddMarker(markerOption); 
+        }
+        
 
         public void OnMapClick(LatLng point)
         {
-            var markerOption = new MarkerOptions().SetPosition(point);
-            markerOption.SetTitle("test");
-            var bmDescriptor = BitmapDescriptorFactory.DefaultMarker(BitmapDescriptorFactory.HueRed);
+            
             switch (MapController.MapState)
             {
                 case (MapState.PLACING_POLICE):
                     MarkPolice(DateTime.Now, point);
                     ConnectionHelper.SendPolice(point); 
                     break;
+                case (MapState.PLACING_FLANKI):
+                    MarkColor(point, "Gra we flanki", BitmapDescriptorFactory.HueGreen);
+                    break;
+                case (MapState.PLACING_DROP):
+                    MarkColor(point, "Alkospot", BitmapDescriptorFactory.HueRed);
+                    break;
                 case (MapState.NULL):
-                    bmDescriptor = BitmapDescriptorFactory.DefaultMarker(BitmapDescriptorFactory.HueYellow);
+                    
                     break;
             }
             MapController.MapState = MapState.NULL;

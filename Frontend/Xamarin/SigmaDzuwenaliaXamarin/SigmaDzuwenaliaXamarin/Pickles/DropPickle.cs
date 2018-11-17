@@ -12,11 +12,9 @@ using Android.Widget;
 
 namespace SigmaDzuwenaliaXamarin.Pickles
 {
-    class DropPickle
+    class DropPickle:LocationPickle
     {
-        public int Id;
-        public double XCoordinate;
-        public double YCoordinate;
+       
         public string DtopType;
         public DateTime DropDate;
     }
